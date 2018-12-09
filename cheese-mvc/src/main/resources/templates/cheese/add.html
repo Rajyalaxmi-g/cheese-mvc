@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!-- says that this is using xhtml standards -->
+<!--<head>-->
+    <!--<meta charset="UTF-8" />-->
+    <!--&lt;!&ndash; this statement doesnt meet xhtml standards we will get error-, add / at end&ndash;&gt;-->
+
+    <!--<title th:text="${title}">Title</title>-->
+<!--</head>-->
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}"> My Cheese MVC </h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" >
+    <div class="form-group">
+        <label for="name-field">Cheese Name</label>
+        <input class="form-control" id="name-field" type="text" name="name" />
+    </div>
+    <div class="form-group">
+        <label for="desc-field">Description</label>
+    <input class="form-control" id="desc-field" type="text" name="description" />
+    </div>
+    <input type="submit" value="Add Cheese"/>
+</form>
+</body>
+</html>

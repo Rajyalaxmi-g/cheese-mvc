@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!-- says that this is using xhtml standards -->
+<!--<head>-->
+<!--<meta charset="UTF-8" />-->
+<!--&lt;!&ndash; this statement doesnt meet xhtml standards we will get error-, add / at end&ndash;&gt;-->
+
+<!--<title th:text="${title}">Title</title>-->
+<!--</head>-->
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}"> My Cheese MVC </h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+
+    <div th:each="cheese : ${cheeses}" class="checkbox">
+    <!--<input type="checkbox" name="cheese" th:value="${cheese.name}" th:id="${cheese.name}">
+    <label th:for="${cheese.name}" th:text="${cheese.name}"></label>
+-->
+        <input type="checkbox" name="cheeseIds" th:value="${cheese.cheeseId}" th:id="${cheese.cheeseId}">
+        <label th:for="${cheese.cheeseId}" th:text="${cheese.name}"></label>
+        <br/>
+    </div>
+
+    <!--code for remove cheese from dropdown-->
+    <!--<select name="cheese">-->
+        <!--<table>-->
+
+            <!--<tr th:each="cheese : ${cheeses}">-->
+                <!--<option th:text="${cheese.key}">  </option>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</select>-->
+    <input type="submit" value="Remove">
+</form>
+
+</body>
+</html>

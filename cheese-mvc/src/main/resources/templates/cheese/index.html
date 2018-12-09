@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!-- says that this is using xhtml standards -->
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+    <h1 th:text="${title}"> My Cheese MVC </h1>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <p th:unless="${cheeses} and ${cheeses.size()}">no cheese </p>
+
+    <table class="table">
+
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+
+        <tr th:each="cheese : ${cheeses}">
+            <!--here name is a private field in cheese class, so we cant access private fields outside the class..but here thymeleaf will call the getter field when we use this syntax-->
+            <td th:text="${cheese.name} "></td>
+            <td th:text="${cheese.description}"></td>
+
+            <!--<p th:text="${cheese.key + '! ' + cheese.value}"></p>-->
+        </tr>
+    </table>
+</body>
+</html>

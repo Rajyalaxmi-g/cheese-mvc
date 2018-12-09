@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!-- says that this is using xhtml standards -->
+<!--<head>-->
+<!--<meta charset="UTF-8" />-->
+<!--&lt;!&ndash; this statement doesnt meet xhtml standards we will get error-, add / at end&ndash;&gt;-->
+
+<!--<title th:text="${title}">Title</title>-->
+<!--</head>-->
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}"></h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" >
+    <div class="form-group">
+        <label for="username-field">UserName</label>
+        <input class="form-control" id="username-field" th.value="${user.username}" type="text" name="username" />
+    </div>
+    <div class="form-group">
+        <label for="email-field">Email</label>
+        <input class="form-control" id="email-field" th.value="${user.email}" type="email" name="email" />
+    </div>
+    <div class="form-group">
+        <label for="password-field">Password</label>
+        <input class="form-control" id="password-field" type="password" name="password" />
+    </div>
+    <div class="form-group">
+        <label for="verifypassword-field">Verify Password</label>
+        <input class="form-control" id="verifypassword-field" type="password" name="verify" />
+    </div>
+    <input type="submit" value="Add User"/>
+</form>
+</body>
+</html>
